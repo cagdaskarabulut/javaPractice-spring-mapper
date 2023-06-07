@@ -1,10 +1,10 @@
 package com.karabulut.javapracticespringmapper.controller;
 
 import com.karabulut.javapracticespringmapper.dto.CarDto;
-import com.karabulut.javapracticespringmapper.mapper.CarMapper;
 import com.karabulut.javapracticespringmapper.model.Car;
 import com.karabulut.javapracticespringmapper.service.CarService;
 import lombok.RequiredArgsConstructor;
+import lombok.var;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,18 +16,13 @@ public class CarController {
 
     @GetMapping("/test-Car")
     public Car testCar(){
-        CarDto newCarDto = new CarDto();
-        newCarDto.setMake("Audi");
-        newCarDto.setModel("A4");
+        var newCarDto = CarDto.builder().make("Audi").model("A4").build();
         return carService.testForCarDtoToCar(newCarDto);
     }
 
     @GetMapping("/test-CarDto")
     public CarDto testCarDto(){
-        Car newCar = new Car();
-        newCar.setId(1);
-        newCar.setMake("Audi");
-        newCar.setModel("A5");
+        var newCar = Car.builder().id(1).make("Audi").model("A5").build();
         return carService.testForCarToCarDto(newCar);
     }
 

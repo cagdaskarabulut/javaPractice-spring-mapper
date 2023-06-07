@@ -3,10 +3,7 @@ package com.karabulut.javapracticespringmapper.model;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+@Builder
 public class Car {
     private int id;
     private String make;
